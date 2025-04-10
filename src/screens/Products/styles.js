@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingHorizontal: moderateScale(10),
-    paddingBottom: verticalScale(16),
+    paddingBottom: verticalScale(50),
   },
   emptyView: {
     flex: 1,

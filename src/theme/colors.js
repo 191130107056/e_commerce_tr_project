@@ -14,6 +14,8 @@ const colors = {
   productConBgColor: '#f9f9f9',
   emptyTextColor: '#666',
   starColor: '#ffa41c',
+  borderColor: '#ccc',
+  pickerBgColor: '#f2f2f2',
 };
 
 export {colors};
