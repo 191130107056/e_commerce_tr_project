@@ -12,7 +12,7 @@ const FilterBar = ({
   setSelectedPrice,
 }) => {
   const {width} = useWindowDimensions();
-  const isSmallScreen = width < 380;
+  const isSmallScreen = width < 300;
 
   const ratingOptions = [
     {label: 'All', value: 0},
