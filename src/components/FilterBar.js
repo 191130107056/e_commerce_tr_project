@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, useWindowDimensions} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {Dropdown} from 'react-native-element-dropdown';
+
 import {moderateScale, scale, verticalScale} from '../theme/dimen';
 import {colors} from '../theme/colors';
 
@@ -13,36 +14,50 @@ const FilterBar = ({
   const {width} = useWindowDimensions();
   const isSmallScreen = width < 380;
 
+  const ratingOptions = [
+    {label: 'All', value: 0},
+    {label: '3+', value: 3},
+    {label: '4+', value: 4},
+    {label: '4.5+', value: 4.5},
+  ];
+
+  const priceOptions = [
+    {label: 'All', value: 'all'},
+    {label: '0 - 50', value: '0-50'},
+    {label: '50 - 100', value: '50-100'},
+    {label: '100+', value: '100+'},
+  ];
+
   return (
     <View style={[styles.container, isSmallScreen && styles.containerStacked]}>
       <View style={styles.filterItem}>
         <Text style={styles.label}>Rating</Text>
-        <View style={styles.pickerWrapper}>
-          <Picker
-            selectedValue={selectedRating}
-            onValueChange={setSelectedRating}
-            style={styles.picker}>
-            <Picker.Item label="All" value={0} />
-            <Picker.Item label="3+" value={3} />
-            <Picker.Item label="4+" value={4} />
-            <Picker.Item label="4.5+" value={4.5} />
-          </Picker>
-        </View>
+        <Dropdown
+          data={ratingOptions}
+          value={selectedRating}
+          onChange={item => setSelectedRating(item.value)}
+          labelField="label"
+          valueField="value"
+          style={styles.dropdown}
+          placeholder="Select Rating"
+          placeholderStyle={styles.dropdownText}
+          selectedTextStyle={styles.dropdownText}
+        />
       </View>
 
       <View style={styles.filterItem}>
         <Text style={styles.label}>Price</Text>
-        <View style={styles.pickerWrapper}>
-          <Picker
-            selectedValue={selectedPrice}
-            onValueChange={setSelectedPrice}
-            style={styles.picker}>
-            <Picker.Item label="All" value="all" />
-            <Picker.Item label="0 - 50" value="0-50" />
-            <Picker.Item label="50 - 100" value="50-100" />
-            <Picker.Item label="100+" value="100+" />
-          </Picker>
-        </View>
+        <Dropdown
+          data={priceOptions}
+          value={selectedPrice}
+          onChange={item => setSelectedPrice(item.value)}
+          labelField="label"
+          valueField="value"
+          style={styles.dropdown}
+          placeholder="Select Price"
+          placeholderStyle={styles.dropdownText}
+          selectedTextStyle={styles.dropdownText}
+        />
       </View>
     </View>
   );
@@ -72,17 +87,17 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(6),
     color: colors.titleColor,
   },
-  pickerWrapper: {
-    borderWidth: 1,
+  dropdown: {
+    height: verticalScale(45),
     borderColor: colors.borderColor,
+    borderWidth: 1,
     borderRadius: moderateScale(8),
-    overflow: 'hidden',
+    paddingHorizontal: moderateScale(10),
     backgroundColor: colors.pickerBgColor,
-    height: verticalScale(44),
-    justifyContent: 'center',
   },
-  picker: {
-    width: '100%',
+  dropdownText: {
+    fontSize: scale(14),
+    color: colors.titleColor,
   },
 });
 

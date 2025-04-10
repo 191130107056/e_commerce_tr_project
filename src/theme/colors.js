@@ -16,6 +16,11 @@ const colors = {
   starColor: '#ffa41c',
   borderColor: '#ccc',
   pickerBgColor: '#f2f2f2',
+  productDetailsBgContainer: '#fdfdfd',
+  detailsTextColor: '#222',
+  detailsDescriptionColor: '#555',
+  formTitleColor: '#333',
+  formInputBorderColor: '#ced4da',
 };
 
 export {colors};
