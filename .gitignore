@@ -21,6 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 **/.xcode.env.local
+ios/Pods/
 
 # Android/IntelliJ
 #
@@ -34,6 +35,7 @@ local.properties
 *.keystore
 !debug.keystore
 .kotlin/
+android/.gradle/
 
 # node.js
 #
@@ -52,6 +54,7 @@ yarn-error.log
 **/fastlane/Preview.html
 **/fastlane/screenshots
 **/fastlane/test_output
+*.log
 
 # Bundle artifact
 *.jsbundle
